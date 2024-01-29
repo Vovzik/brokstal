@@ -1,0 +1,29 @@
+.photo {
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: rem(10px);
+    margin-bottom: rem(30px);
+  }
+
+  &__item {
+    overflow: hidden;
+    border-radius: rem(20px);
+  }
+
+  &__item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-width: 480px) {
+    &__items {
+      grid-template-columns: 1fr;
+    }
+
+    &__item {
+      height: rem(189px);
+    }
+  }
+}

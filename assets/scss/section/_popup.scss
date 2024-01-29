@@ -1,0 +1,139 @@
+.popup {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: all 0.4s ease;
+  z-index: 1000;
+  overflow: auto;
+  cursor: pointer;
+
+  &.js__popup-open {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.js__popup-open.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+  &__body {
+    min-height: 100%;
+    padding: 30px 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  &__content {
+    background-color: #003B81;
+    cursor: default;
+    padding: rem(43px) rem(62px);
+    border-radius: rem(47px);
+    display: flex;
+    width: rem(676px);
+  }
+
+  &__column {
+    width: rem(260px);
+    &:not(:last-child) {
+      margin-right: rem(32px);
+    }
+  }
+
+  &__btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: rem(14px);
+    font-weight: 500;
+    line-height: 130%;
+    color: #373737;
+    border-radius: rem(50px);
+    background: #FFFFFF;
+    padding: rem(11px) rem(41px) rem(12px) rem(48px);
+    width: 100%;
+    text-align: center;
+    margin-bottom: rem(14px);
+    transition: 0.4s ease-out;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: rem(9px);
+      transform: translate(0, -50%);
+      width: rem(24px);
+      height: rem(24px);
+      background: url('../img/popup/whatsap.svg') no-repeat;
+      background-size: 100% 100%;
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &_green {
+      &:before {
+        background: url('../img/popup/telegram.svg') no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+
+  &__box {
+    background: #FFFFFF;
+    border-radius: rem(21px);
+    padding: rem(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__box-img {
+    max-width: rem(172px);
+    margin-bottom: rem(17px);
+  }
+
+
+  &__text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: rem(12px);
+    font-weight: 500;
+    line-height: 130%;
+    color: #9B9B9B;
+    width: rem(186px);
+    text-align: center;
+  }
+
+  @media (max-width: 767px) {
+    &__content {
+      width: rem(450px);
+      padding: rem(20px);
+      border-radius: rem(20px);
+    }
+
+    &__column {
+      width: rem(189px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__content {
+      width: rem(450px);
+      padding: rem(20px);
+      border-radius: rem(20px);
+      flex-direction: column;
+    }
+
+    &__column {
+      width: 100%;
+      &:not(:last-child) {
+        margin: 0px;
+        margin-bottom: rem(10px);
+      }
+    }
+  }
+}

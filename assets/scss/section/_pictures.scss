@@ -1,0 +1,32 @@
+.pictures {
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: rem(16px);
+    margin-bottom: rem(30px);
+  }
+
+  &__item {
+    overflow: hidden;
+    border-radius: rem(30px);
+    height: rem(231px);
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  @media (max-width: 767px) {
+    &__items {
+      grid-template-columns: 1fr;
+      grid-gap: rem(10px);
+    }
+
+    &__item {
+      height: rem(190px);
+    }
+  }
+}

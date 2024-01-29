@@ -1,0 +1,12 @@
+.video {
+  width: 100%;
+  height: rem(374px);
+  object-fit: cover;
+  object-position: center;
+  border-radius: rem(20px);
+  overflow: hidden;
+  margin-bottom: rem(20px);
+  @media (max-width: 480px) {
+    height: rem(221px);
+  }
+}

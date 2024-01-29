@@ -1,0 +1,36 @@
+.price-download {
+  border-radius: rem(20px);
+  background: #003B81;
+  width: 100%;
+  min-height: rem(123px);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: rem(20px);
+  line-height: 130%;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: rem(10px);
+  transition: 0.4s ease-out;
+  padding: rem(20px);
+  &:before {
+    content: '';
+    width: rem(33px);
+    height: rem(38px);
+    flex: 0 0 auto;
+    background: url('../img/white-paper/price.svg') no-repeat;
+    background-size: 100% 100%;
+    margin-right: rem(20px);
+  }
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &--iconHide {
+    min-height: auto;
+    &:before {
+      display: none;
+    }
+  }
+}

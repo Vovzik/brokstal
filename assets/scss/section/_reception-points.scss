@@ -1,0 +1,44 @@
+.reception-points {
+  &__map {
+    margin-bottom: rem(20px);
+  }
+}
+
+.map {
+  width: 100%;
+  height: rem(416px);
+}
+
+.addresses {
+  border-radius: rem(20px);
+  background: #F5F5F5;
+  padding: rem(20px) rem(26px);
+
+  &__text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: rem(16px);
+    line-height: 130%;
+    color: #888888;
+    margin-bottom: rem(5px);
+  }
+
+  &__phone {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: rem(24px);
+    line-height: 130%;
+    color: #003B81;
+    display: flex;
+    align-items: center;
+    &:before {
+      content: '';
+      width: rem(20px);
+      height: rem(20px);
+      flex: 0 0 auto;
+      background: url('../icons/phone.svg') no-repeat;
+      margin-right: rem(9px);
+    }
+  }
+}
+

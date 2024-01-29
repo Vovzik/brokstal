@@ -1,0 +1,47 @@
+.manufacturingStages {
+  &__title {
+    margin-bottom: rem(32px);
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: rem(25px);
+  }
+
+  &__item {
+    border-radius: rem(30px);
+    background: #F5F5F5;
+    padding: rem(18px);
+  }
+
+  &__icon {
+    margin-bottom: rem(20px);
+  }
+
+  &__text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: rem(18px);
+    line-height: 130%;
+    color: #000000;
+  }
+
+  @media (max-width: 991px) {
+    &__items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__item {
+      padding: rem(10px);
+    }
+
+    &__text {
+      font-size: rem(14px);
+    }
+
+    &__title {
+      text-align: center;
+    }
+  }
+}

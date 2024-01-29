@@ -1,0 +1,113 @@
+.sidebar-menu {
+  background: #F5F5F5;
+  border-radius: rem(20px);
+  overflow: hidden;
+  > li {
+    &:not(:last-child) {
+      border-bottom: rem(1px) solid #9B9B9B;
+    }
+  }
+  > li > a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: rem(18px);
+    font-weight: 500;
+    line-height: 110%;
+    color: #002660;
+    display: flex;
+    align-items: center;
+    padding: rem(15px) rem(20px);
+    transition: 0.4s ease-out;
+    &:hover {
+      background: #003B81;
+      color: #ffffff;
+    }
+    &[aria-current="page"] {
+      background: #003B81;
+      color: #ffffff;
+    }
+  }
+
+  > li.menu-item-has-children a span {
+    display: block;
+    width: rem(10px);
+    height: rem(8px);
+    flex: 0 0 auto;
+    margin: 0px rem(5px) ;
+    background: url('../img/subcategory/arrow.svg') no-repeat;
+    background-size: 100% 100%;
+    transform: rotate(-180deg);
+    transition: 0.4s ease-out;
+  }
+
+  > li.menu-item-has-children a:hover span {
+    background: url('../img/subcategory/arrow-white.svg') no-repeat;
+    background-size: 100% 100%;
+  }
+
+  > li.menu-item-has-children a span.rotate {
+    transform: rotate(0deg);
+  }
+
+  @media (max-width: 1199px) {
+    margin-top: rem(20px);
+  }
+
+
+  @media (max-width: 991px) {
+    > li > a {
+      font-size: rem(18px);
+      padding: rem(5px) rem(20px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: rem(20px);
+    > li > a {
+      justify-content: center;
+      padding: rem(15px);
+      font-size: rem(14px);
+    }
+  }
+}
+
+.sub-menu {
+  height: 0;
+  overflow: hidden;
+  transition: 0.4s ease-out;
+  opacity: 0;
+  &.open {
+    height: auto;
+    overflow: visible;
+    opacity: 1;
+  }
+  li a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: rem(16px);
+    font-weight: 400;
+    line-height: 130%;
+    color: #002660;
+    padding: rem(8px) rem(30px);
+    display: block;
+    transition: 0.4s ease-out;
+    &:hover {
+      background: #003B81;
+      color: #ffffff;
+    }
+    &[aria-current="page"] {
+      background: #003B81;
+      color: #ffffff;
+    }
+  }
+
+  li:not(:last-child) a {
+    border-bottom: rem(1px) solid #9B9B9B;
+  }
+
+  @media (max-width: 991px) {
+    li a {
+      font-size: rem(14px);
+      padding: rem(5px) rem(30px);
+    }
+
+  }
+}

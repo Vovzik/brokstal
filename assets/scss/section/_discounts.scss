@@ -1,0 +1,52 @@
+.discounts {
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: rem(10px);
+    margin-bottom: rem(30px);
+  }
+
+  &__text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: rem(20px);
+    line-height: 130%;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: rem(9px);
+  }
+
+  &__item {
+    border-radius: rem(20px);
+    background: #003B81;
+    padding: rem(35px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: rem(64px);
+    line-height: 130%;
+    color: #FFFFFF;
+  }
+
+  @media (max-width: 767px) {
+    &__items {
+      grid-gap: rem(5px);
+    }
+
+    &__text {
+      font-size: rem(14px);
+    }
+    &__title {
+      font-size: rem(40px)
+    }
+    &__item {
+      padding: rem(15px) rem(15px);
+    }
+  }
+}

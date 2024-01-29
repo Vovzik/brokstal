@@ -1,0 +1,193 @@
+.form {
+  padding: rem(50px);
+  border-radius: rem(20px);
+  background: #003B81;
+  margin-top: rem(30px);
+
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: rem(36px);
+    line-height: 110%;
+    color: #FFFFFF;
+    margin-bottom: rem(20px);
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-title {
+    cursor: pointer;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: rem(16px);
+    line-height: 110%;
+    color: #FFFFFF;
+    padding-left: rem(38px);
+    &:not(:last-child) {
+      margin-right: rem(24px);
+    }
+  }
+
+
+  &__radio-title:before {
+    content: "";
+    display: block;
+    width: rem(28px);
+    height: rem(28px);
+    border: rem(2px) solid #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    top: rem(-4px);
+    left: 0px;
+  }
+
+  &__radio-title::after {
+    content: "";
+    display: block;
+    width: rem(18px);
+    height: rem(18px);
+    position: absolute;
+    top: rem(1px);
+    left: rem(5px);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .1s linear;
+    background: url('../img/recyclableMaterials-subcategory/check.svg') no-repeat;
+    background-size: 100% 100%;
+  }
+
+  &__radio-input:checked + &__radio-title::after {
+    opacity: 1;
+  }
+
+  &__box {
+    margin-top: rem(20px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: rem(5px) rem(13px);
+    max-width: rem(637px);
+  }
+
+  &__input {
+    border-radius: rem(47px);
+    background: #FFFFFF;
+    padding: 0px rem(20px);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: rem(16px);
+    line-height: 110%;
+    color: #3A3A3A;
+    height: rem(46px);
+    &::placeholder {
+      color: #3A3A3A;
+    }
+  }
+
+  &__button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-top: rem(8px);
+  }
+
+
+  &__text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: rem(12px);
+    line-height: 130%;
+    color: #FFFFFF;
+    max-width: rem(312px);
+    margin-top: rem(2px);
+  }
+
+  &__link {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1199px) {
+    &__box {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    & {
+      padding: rem(20px) rem(10px);
+      border-radius: rem(20px);
+    }
+    
+    &__title {
+      text-align: center;
+      font-size: rem(24px);
+    }
+
+    &__radio-title {
+      font-size: rem(14px);
+    }
+
+    &__box {
+      margin-top: rem(24px);
+    }
+
+    &__input {
+      font-size: rem(14px);
+    }
+
+    &__button {
+      font-size: rem(14px);
+    }
+  }
+}
+
+.form-file {
+  .form__box {
+    max-width: 100%;
+    grid-gap: rem(16px);
+  }
+  .form__input {
+    &:nth-child(1) {
+      grid-column: 1/3;
+    }
+  }
+
+  .form__input[type="file"] {
+    grid-column: 1/3;
+    padding: rem(10px) rem(20px);
+  }
+
+  .form__text {
+    grid-column: 1/3;
+  }
+
+  .form__button {
+    width: rem(289px);
+  }
+
+  @media (max-width: 767px) {
+    .form__input {
+      &:nth-child(1) {
+        grid-column: auto;
+      }
+    }
+
+    .form__input[type="file"] {
+      padding: rem(12px) rem(20px);
+    }
+
+    .form__input[type="file"] {
+      grid-column: auto;
+    }
+
+    .form__text {
+      grid-column: auto;
+    }
+
+    .form__button {
+      width: 100%;
+    }
+  }
+}

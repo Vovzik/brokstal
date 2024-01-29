@@ -1,0 +1,93 @@
+.select2  {
+  position: relative;
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    transition: 0.1s;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    border-radius: rem(47px);
+    padding: rem(11px) rem(40px) rem(12px) rem(20px);
+    border: rem(1px) solid #FFFFFF;
+    background: #FFFFFF;
+  }
+
+  &__trigger span {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: rem(16px);
+    line-height: 130%;
+    color: #3A3A3A;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    right: rem(20px);
+    transform: translate(0%, -50%);
+  }
+
+  &__arrow svg {
+    transform: rotate(0deg);
+  }
+
+  &__trigger.active &__arrow svg {
+    transform: rotate(180deg);
+  }
+
+
+  &__drop {
+    display: none;
+    width: 100%;
+    padding: rem(10px) 0;
+    background-color: #003B81;
+    border-top: none;
+    position: absolute;
+    z-index: 10;
+    margin-top: rem(5px);
+  }
+
+  &__drop.open {
+    display: block;
+  }
+
+  &__list {
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  &__list input {
+    display: none;
+  }
+
+  &__list label {
+    display: block;
+    padding: rem(5px) rem(20px);
+    margin-bottom: 0;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: rem(16px);
+    line-height: 130%;
+    color: #FFFFFF;
+  }
+
+  &__list input:checked + label {
+    background-color: #1F284E;
+    color: #fff;
+  }
+
+
+  @media (max-width: 480px) {
+    &__trigger span,
+    &__list label {
+      font-size: rem(14px);
+    }
+
+  }
+}

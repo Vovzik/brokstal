@@ -1,0 +1,14 @@
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: rem(24px);
+  line-height: 130%;
+  color: #3A3A3A;
+  margin-bottom: rem(15px);
+
+  @media (max-width: 480px) {
+    font-size: rem(20px);
+    text-align: center;
+    margin-bottom: rem(20px);
+  }
+}

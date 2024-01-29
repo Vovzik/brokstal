@@ -1,0 +1,16 @@
+.button {
+  padding: rem(15px) rem(50px);
+  border-radius: rem(54px);
+  text-align: center;
+  border: rem(2px) solid #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: rem(16px);
+  line-height: 120%;
+  color: #ffffff;
+  transition: 0.4s ease-out;
+  &:hover {
+    background: #ffffff;
+    color: #373737;
+  }
+}
