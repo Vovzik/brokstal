@@ -1,18 +1,30 @@
-.reception-points {
-  &__map {
-    margin-bottom: rem(20px);
-  }
-}
-
 .map {
   width: 100%;
   height: rem(416px);
+  margin-bottom: rem(20px);
+
+  @media (max-width: 480px) {
+    height: rem(591px);
+  }
 }
 
 .addresses {
   border-radius: rem(20px);
   background: #F5F5F5;
   padding: rem(20px) rem(26px);
+  &:not(:last-child) {
+    margin-bottom: rem(10px);
+  }
+
+
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: rem(10px) rem(92px);
+    max-width: rem(800px);
+    margin-bottom: rem(10px);
+  }
 
   &__text {
     font-family: 'Montserrat', sans-serif;
@@ -23,14 +35,31 @@
     margin-bottom: rem(5px);
   }
 
+  &__text--style {
+    font-size: rem(14px);
+    margin-bottom: rem(10px);
+  }
+
+  &__descr {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: rem(14px);
+    line-height: 130%;
+    color: #003B81;
+  }
+
   &__phone {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: rem(24px);
     line-height: 130%;
     color: #003B81;
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    transition: 0.4s ease-out;
+    &:hover {
+      opacity: 0.5;
+    }
     &:before {
       content: '';
       width: rem(20px);
@@ -38,6 +67,36 @@
       flex: 0 0 auto;
       background: url('../icons/phone.svg') no-repeat;
       margin-right: rem(9px);
+    }
+  }
+
+  @media (max-width: 767px) {
+    & {
+      text-align: center;
+    }
+
+    &__items {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__descr {
+      max-width: rem(262px);
+      margin: 0 auto;
+    }
+    & {
+      padding: rem(10px);
+    }
+    &__text {
+      font-size: rem(14px);
+    }
+
+    &__phone {
+      font-size: rem(20px);
+      &:before {
+        margin-right: rem(5px);
+      }
     }
   }
 }

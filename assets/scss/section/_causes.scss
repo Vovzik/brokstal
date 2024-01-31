@@ -1,0 +1,54 @@
+.causes {
+  &__list-item {
+    padding-left: rem(72px);
+    position: relative;
+    &:not(:last-child) {
+      margin-bottom: rem(20px);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: rem(-11px);
+    left: 0px;
+  }
+
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: rem(18px);
+    line-height: 130%;
+    color: #373737;
+    margin-bottom: rem(10px);
+  }
+
+  &__text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: rem(18px);
+    line-height: 130%;
+    color: #373737;
+  }
+
+  @media (max-width: 480px) {
+    &__title {
+      font-size: rem(16px);
+      margin-bottom: rem(10px);
+    }
+
+    &__text {
+      font-size: rem(14px);
+    }
+    &__list-item {
+      padding-left: rem(50px);
+      position: relative;
+      &:not(:last-child) {
+        margin-bottom: rem(20px);
+      }
+    }
+
+    &__icon {
+      width: rem(40px);
+    }
+  }
+}

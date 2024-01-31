@@ -1,0 +1,28 @@
+.table-blue {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  margin-bottom: rem(20px);
+  &__tr {
+    background: #003B81;
+    border-bottom: rem(0.5px) solid #FFFFFF;
+  }
+
+  &__td {
+    padding: rem(23px) rem(30px);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: rem(16px);
+    line-height: 130%;
+    color: #FFFFFF;
+  }
+
+  @media (max-width: 480px) {
+    &__td {
+      padding: rem(10px);
+      &:nth-child(1) {
+        font-size: rem(14px);
+      }
+      font-size: rem(12px);
+    }
+  }
+}
