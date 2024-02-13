@@ -1,0 +1,26 @@
+.popup-form-send {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: rem(16px);
+  line-height: 130%;
+  color: green;
+  background: #ffffff;
+  padding: rem(30px);
+  transition: 0.4s ease-out;
+  opacity: 0;
+  visibility: hidden;
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media (max-width: 480px) {
+    text-align: center;
+    padding: rem(10px);
+  }
+}

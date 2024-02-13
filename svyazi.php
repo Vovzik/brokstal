@@ -10,7 +10,9 @@
                 <div class="content">
                     <?php get_sidebar(); ?>
                     <div class="content__column">
-
+                         <div class="wp-redactor">
+                             <?php the_field('kontent') ?>
+                         </div>
                         <?php include 'includes/form-file.php'; ?>
                         <?php include 'includes/callback.php'; ?>
                         <?php include 'includes/sidebar.php'; ?>

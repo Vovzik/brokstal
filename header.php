@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>brokstal</title>
+    <link href="https://cdn.jsdelivr.net/npm/jquery-form-styler@2.0.2/dist/jquery.formstyler.min.css" rel="stylesheet">
     <?php wp_head(); ?>
 </head>
 <body>
@@ -15,53 +16,40 @@
         <div class="header__content header-content-js">
             <div class="container">
                 <div class="header__inner-top">
-                    <a class="header__logo" href="#">
+                    <a class="header__logo" href="<?= is_page('Главная') ? '#' : '/' ?>">
                         <picture>
-                            <source srcset="<?php bloginfo('template_url'); ?>/assets/img/header/logo-white.svg"
-                                    type="image/jpeg" media="(max-width:480px)">
-                            <img class="header__logo-icon"
-                                 src="<?php bloginfo('template_url'); ?>/assets/img/header/logo.svg" alt="Logo">
+                            <source srcset="<?php the_field('logo_belyj_na_telefone', 26) ?>" type="image/jpeg" media="(max-width:480px)">
+                            <img class="header__logo-icon" src="<?php the_field('logo', 26) ?>" alt="Logo">
                         </picture>
                     </a>
                     <nav class="header__nav">
-                        <ul class="header__list">
-                            <li>
-                                <a href="#">
-                                    О компании
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Контакты
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Новости
-                                </a>
-                            </li>
-                        </ul>
+                        <?php
+                        wp_nav_menu( array(
+                            'theme_location' => 'top',
+                            'container' => '',
+                            'menu_class' => 'header__list',
+                            'depth'           => 0,
+                        ) );
+                        ?>
                     </nav>
                     <div class="header__addresses">
                         <div class="header__address">
                             <div class="header__text">
-                                <img class="header__text-icon"
-                                     src="<?php bloginfo('template_url'); ?>/assets/img/header/map.svg" alt="alt">
-                                г. Йошкар-Ола, ул. Строителей, 101Б
+                                <img class="header__text-icon" src="<?php bloginfo('template_url'); ?>/assets/img/header/map.svg" alt="alt">
+                                <?php the_field('adress', 26) ?>
                             </div>
-                            <a class="header__phone" href="tel:88362326265">
-                                8 (8362) 32-62-65
+                            <a class="header__phone" href="<?php the_field('telefon_ssylka', 26) ?>">
+                                <?php the_field('telefon', 26) ?>
                             </a>
                         </div>
                         <div class="header__address">
                             <div class="header__text">
                                 <img class="header__text-icon"
                                      src="<?php bloginfo('template_url'); ?>/assets/img/header/map.svg" alt="alt">
-                                п.Медведево,
-                                ул. Чехова, 14
+                                <?php the_field('adress2', 26) ?>
                             </div>
-                            <a class="header__phone" href="tel:88362321515">
-                                8 (8362) 32-15-15
+                            <a class="header__phone" href=" <?php the_field('telefon_ssylka2', 26) ?>">
+                                <?php the_field('telefon2', 26) ?>
                             </a>
                         </div>
                     </div>

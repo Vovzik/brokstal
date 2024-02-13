@@ -4,90 +4,58 @@
             <div class="FAQ__inner">
                 <div class="FAQ__info">
                     <h2 class="FAQ__title">
-                        Часто задаваемые вопросы
+                        <?php echo get_field('nazvanie', 35) ?>
                     </h2>
                     <p>
-                        Вы можете всегда позвонить нам:
+                        <?php echo get_field('opisanie', 35) ?>
                     </p>
-                    <div class="FAQ__address">
-                        п.Медведево, ул. Чехова, 14
-                    </div>
-                    <a class="FAQ__phone" href="tel:88362321515">
-                        8 (8362) 32-15-15
-                    </a>
-                    <div class="FAQ__address">
-                        г. Йошкар-Ола, ул. Строителей, 101Б
-                    </div>
-                    <a class="FAQ__phone" href="tel:88362326265">
-                        8 (8362) 32-62-65
-                    </a>
+                    <?php
+
+                    // Check rows exists.
+                    if (have_rows('adresa', 35)):
+
+                        // Loop through rows.
+                        while (have_rows('adresa', 35)) : the_row(); ?>
+                            <div class="FAQ__address">
+                                <?php the_sub_field('adres') ?>
+                            </div>
+                            <a class="FAQ__phone" href="tel:<?php the_sub_field('telefon') ?>">
+                                <?php the_sub_field('telefon') ?>
+                            </a>
+                        <?php endwhile;
+
+// No value.
+                    else :
+                        // Do something...
+                    endif; ?>
                 </div>
                 <div class="FAQ__accardion">
-                    <div class="FAQ__box">
-                        <div class="FAQ__question minus">
-                            <div class="FAQ__btn">
+                    <?php
 
-                            </div>
-                            <h3 class="FAQ__subtitle">
-                                Сколько стоит вывоз вторсырья, какая конечная цена?  Сколько стоит вывоз вторсырья, какая конечная цена?
-                            </h3>
-                        </div>
-                        <div class="FAQ__answer open">
-                            Цена зависит от множества факторов. От вида, качества и объема предоставленного вторсырья. Каждый случай покупки и вывоза нами вторсырья индивидуален. Оставляйте заявку, либо звоните. Ответим на все вопросы
-                        </div>
-                    </div>
-                    <div class="FAQ__box">
-                        <div class="FAQ__question">
-                            <div class="FAQ__btn">
+                    // Check rows exists.
+                    if (have_rows('voprosy', 35)):
 
-                            </div>
-                            <h3 class="FAQ__subtitle">
-                                Нужно ли дополнительно платить за ваш транспорт?
-                            </h3>
-                        </div>
-                        <div class="FAQ__answer">
-                            Цена зависит от множества факторов. От вида, качества и объема предоставленного вторсырья. Каждый случай покупки и вывоза нами вторсырья индивидуален. Оставляйте заявку, либо звоните. Ответим на все вопросы
-                        </div>
-                    </div>
-                    <div class="FAQ__box">
-                        <div class="FAQ__question">
-                            <div class="FAQ__btn">
+                        // Loop through rows.
+                        while (have_rows('voprosy', 35)) : the_row(); ?>
+                            <div class="FAQ__box">
+                                <div class="FAQ__question">
+                                    <div class="FAQ__btn">
 
+                                    </div>
+                                    <h3 class="FAQ__subtitle">
+                                        <?php the_sub_field('vopros') ?>
+                                    </h3>
+                                </div>
+                                <div class="FAQ__answer">
+                                    <?php the_sub_field('otvet') ?>
+                                </div>
                             </div>
-                            <h3 class="FAQ__subtitle">
-                                Если у нас небольшое количество вторсырья?
-                            </h3>
-                        </div>
-                        <div class="FAQ__answer">
-                            Цена зависит от множества факторов. От вида, качества и объема предоставленного вторсырья. Каждый случай покупки и вывоза нами вторсырья индивидуален. Оставляйте заявку, либо звоните. Ответим на все вопросы
-                        </div>
-                    </div>
-                    <div class="FAQ__box">
-                        <div class="FAQ__question">
-                            <div class="FAQ__btn">
+                        <?php endwhile;
 
-                            </div>
-                            <h3 class="FAQ__subtitle">
-                                От скольки килограмм вывозите вторсырье?
-                            </h3>
-                        </div>
-                        <div class="FAQ__answer">
-                            Цена зависит от множества факторов. От вида, качества и объема предоставленного вторсырья. Каждый случай покупки и вывоза нами вторсырья индивидуален. Оставляйте заявку, либо звоните. Ответим на все вопросы
-                        </div>
-                    </div>
-                    <div class="FAQ__box">
-                        <div class="FAQ__question">
-                            <div class="FAQ__btn">
-
-                            </div>
-                            <h3 class="FAQ__subtitle">
-                                Как взвешиваете?
-                            </h3>
-                        </div>
-                        <div class="FAQ__answer">
-                            Цена зависит от множества факторов. От вида, качества и объема предоставленного вторсырья. Каждый случай покупки и вывоза нами вторсырья индивидуален. Оставляйте заявку, либо звоните. Ответим на все вопросы
-                        </div>
-                    </div>
+// No value.
+                    else :
+                        // Do something...
+                    endif; ?>
                 </div>
             </div>
         </div>

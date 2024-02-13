@@ -2,6 +2,7 @@
   background: #F5F5F5;
   border-radius: rem(20px);
   overflow: hidden;
+  margin-bottom: rem(10px);
   > li {
     &:not(:last-child) {
       border-bottom: rem(1px) solid #9B9B9B;
@@ -24,6 +25,7 @@
     &[aria-current="page"] {
       background: #003B81;
       color: #ffffff;
+      pointer-events: none;
     }
   }
 
@@ -49,7 +51,7 @@
   }
 
   @media (max-width: 1199px) {
-    margin-top: rem(20px);
+    margin-bottom: rem(20px);
   }
 
 

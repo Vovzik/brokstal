@@ -7,6 +7,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: rem(25px);
+    margin-bottom: rem(20px);
   }
 
   &__item {

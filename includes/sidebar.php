@@ -1,32 +1,22 @@
 <ul class="sidebar-menu element480-show">
-    <li>
-        <a href="#">
-            Лом черных металлов
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            Лом цветных металлов
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            Пункты приема
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            Демонтаж
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            Вывоз металлолома
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            Организация сбора на предприятиях
-        </a>
-    </li>
+    <?php
+    // проверяем есть ли в повторителе данные
+    if (have_rows('straniczy')):
+        // перебираем данные
+
+        while (have_rows('straniczy')) : the_row(); ?>
+            <li>
+                <a  href="<?php the_sub_field('ssylka') ?>" <?php the_sub_field('aktivnyj_punkt') ?>>
+                    <?php the_sub_field('nazvanie') ?>
+                </a>
+            </li>
+        <?php endwhile;
+
+    else :
+
+        // вложенных полей не найдено
+
+    endif;
+
+    ?>
 </ul>

@@ -1,5 +1,12 @@
-<ul class="breadcrumbs">
-    <li><a href="#">Главная</a></li>
-    <li><a href="#">Прием металлолома</a></li>
-    <li>Лом цветных металлов</li>
-</ul>
+
+<?php
+if ( function_exists( 'yoast_breadcrumb' ) ) :
+
+    yoast_breadcrumb( '<div class="breadcrumbs">', '</div>' );
+
+endif;
+
+?>
+
+
+

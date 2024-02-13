@@ -325,12 +325,15 @@ function ready() {
     popup();
 
     function maskPhone() {
-        const element = document.querySelector('.phone');
+        const element = document.querySelectorAll('.phone');
         const maskOptions = {
-            mask: '+7 (000) 000 - 00 - 00',
+            mask: '+7 (000) 000-00-00',
             lazy: false
         }
-        const mask = new IMask(element, maskOptions);
+
+        for (let i = 0; i < element.length; i++) {
+            const mask = new IMask(element[i], maskOptions);
+        }
     }
 
     maskPhone()
@@ -422,13 +425,11 @@ function ready() {
         function init() {
             let i;
             let pointer = [
-                [51.97516107208106, 113.27185299999995],
-                [52.03228357208567, 113.44739299999996],
-                [52.05879857203995, 113.48445749999999]
+                [map.dataset.coords,map.dataset.coords2],
             ];
 
             let myMap = new ymaps.Map(map, {
-                center: [52.030072706573115, 113.53862925781252],
+                center: [map.dataset.coords,map.dataset.coords2],
                 zoom: 12
             });
 
@@ -437,18 +438,6 @@ function ready() {
                     new ymaps.Placemark(pointer[0], {}, {
                         iconLayout: 'default#image',
                         iconImageHref: './images/infrastructure/infrastructure__map.png',
-                        iconImageSize: [46, 46],
-                        iconImageOffset: [-35, -80]
-                    }),
-                    new ymaps.Placemark(pointer[1], {}, {
-                        iconLayout: 'default#image',
-                        iconImageHref: './images/infrastructure/infrastructure__map3.png',
-                        iconImageSize: [46, 46],
-                        iconImageOffset: [-35, -80]
-                    }),
-                    new ymaps.Placemark(pointer[2], {}, {
-                        iconLayout: 'default#image',
-                        iconImageHref: './images/infrastructure/infrastructure__map-green.png',
                         iconImageSize: [46, 46],
                         iconImageOffset: [-35, -80]
                     }),
@@ -492,7 +481,59 @@ function ready() {
 
     more();
 
+    function checkboxForm() {
+        const input = document.querySelectorAll('.checkbox-true-js input');
+        const wpcf7ListItemLabel = document.querySelector('.form-file .wpcf7-list-item-label');
+        const wpcf7ListItemLabel2 = document.querySelector('.resume-forms .wpcf7-list-item-label');
+        const wpcf7ListItemLabel3 = document.querySelector('.application .wpcf7-list-item-label');
 
+        if(wpcf7ListItemLabel) {
+            wpcf7ListItemLabel.insertAdjacentHTML('afterBegin', `<p>Согласен на <a href='#'>обработку персональных данных</a></p>`);
+        }
+
+        if(wpcf7ListItemLabel2) {
+            wpcf7ListItemLabel2.insertAdjacentHTML('afterBegin', `<p>Согласен на <a href='#'>обработку персональных данных</a></p>`);
+        }
+
+        if(wpcf7ListItemLabel3) {
+            wpcf7ListItemLabel3.insertAdjacentHTML('afterBegin', `<p>Согласен на <a href='#'>обработку персональных данных</a></p>`);
+        }
+
+        for (let i = 0; i < input.length; i++) {
+            if(input[i]) {
+                input[i].setAttribute('checked', 'true');
+            }
+        }
+    }
+
+    checkboxForm()
+
+    function sendForm () {
+        const wpcf7Elm = document.querySelectorAll( '.wpcf7' );
+        console.log(wpcf7Elm)
+        const popupFormSend = document.querySelector('.popup-form-send');
+        for (let i = 0; i < wpcf7Elm.length; i++) {
+            if(wpcf7Elm[i]) {
+                wpcf7Elm[i].addEventListener( 'wpcf7mailsent', function( event ) {
+                    popupFormSend.classList.add('open');
+                    setTimeout(() => {
+                        popupFormSend.classList.remove('open');
+                    }, 2000)
+                }, false );
+            }
+        }
+    }
+
+    sendForm()
+
+    function customSelect () {
+        (function($) {
+            $(function() {
+                $('select').styler();
+            });
+        })(jQuery);
+    }
+    customSelect()
 }
 
 

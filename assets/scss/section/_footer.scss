@@ -105,7 +105,7 @@
     width: rem(379px);
     background: #F5F5F5;
     border-radius: rem(30px);
-    min-height: rem(379px);
+    min-height: rem(444px);
     padding-top: rem(65px);
   }
 
@@ -132,7 +132,7 @@
     padding: rem(33px) rem(38px) rem(40px) rem(38px);
     display: flex;
     margin-right: rem(10px);
-    min-height: rem(379px);
+    min-height: rem(444px);
   }
 
   &__column {
@@ -219,7 +219,7 @@
     border-radius: rem(30px);
     background: #003B81;
     padding: rem(33px) rem(20px) rem(33px) rem(20px);
-    min-height: rem(379px);
+    min-height: rem(444px);
   }
 
   &__link {
@@ -299,6 +299,12 @@
 
   &__link-phone {
     display: none;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: rem(6px);
   }
 
   @media (max-width: 1199px) {
