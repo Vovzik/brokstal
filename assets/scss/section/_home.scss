@@ -6,6 +6,7 @@
 
   &__slider {
     position: relative;
+    overflow: hidden;
   }
 
   &__slide {
@@ -74,7 +75,7 @@
   }
 
   &__item {
-    background: #003B81;
+    background: #003b81bf;
     border-radius: rem(60px);
     padding: rem(11px) rem(45px) rem(11px) rem(20px);
     font-family: 'Montserrat', sans-serif;
@@ -97,6 +98,25 @@
     }
     &:hover:before {
       transform: translate(rem(7px), -50%);
+    }
+  }
+
+  &__navigation {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__prev,
+  &__next {
+    z-index: 1;
+    cursor: pointer;
+    transition: 0.4s ease-out;
+    &:hover {
+      transform: scale(1.1);
     }
   }
 
@@ -130,10 +150,29 @@
        padding: rem(323px) 0px rem(10px);
      }
 
+    &__prev,
+    &__next {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+
+    &__prev {
+      left: rem(10px);
+    }
+
+    &__next {
+      right: rem(10px);
+    }
+
+      &__navigation {
+        position: static;
+      }
+
     &__slide {
       text-align: center;
       border-radius: rem(20px);
-      padding: rem(40px) rem(34px) rem(40px) rem(34px);
+      padding: rem(40px) rem(53px);
     }
 
     &__title {
@@ -157,7 +196,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: rem(20px) !important;
+  position: static;
+  margin: 0px rem(44px);
+  width: auto !important;
 
   .swiper-pagination-bullet {
     margin: 0px !important;
@@ -176,9 +217,11 @@
   }
 
   @media (max-width: 480px) {
-    display: none;
+    position: absolute;
+    margin: 0px;
+    bottom: rem(18px) !important;
+    width: 100% !important;
   }
-
 }
 
 

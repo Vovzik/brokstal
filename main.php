@@ -8,12 +8,9 @@ get_header(); ?>
             <div class="container">
                 <div class="home__slider">
                     <div class="swiper-wrapper">
-
                         <?php
-
                         // проверяем есть ли в повторителе данные
                         if (have_rows('slajdy')):
-
                             // перебираем данные
                             while (have_rows('slajdy')) : the_row(); ?>
                                 <div class="home__slide swiper-slide"
@@ -30,9 +27,7 @@ get_header(); ?>
                                         </a>
                                     </div>
                                     <div class="home__items">
-
                                         <?php
-
                                         // проверяем есть ли в повторителе данные
                                         if (have_rows('uslugi')):
 
@@ -42,27 +37,33 @@ get_header(); ?>
                                                     <?php the_sub_field('nazvanie_uslugi') ?>
                                                 </a>
                                             <?php endwhile;
-
                                         else :
-
                                             // вложенных полей не найдено
 
                                         endif;
-
                                         ?>
                                     </div>
                                 </div>
                             <?php endwhile;
 
                         else :
-
                             // вложенных полей не найдено
-
                         endif;
-
                         ?>
                     </div>
-                    <div class="home-pagination swiper-pagination"></div>
+                    <div class="home__navigation">
+                        <div class="home__prev">
+                            <svg class="home__prev-svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.3333 10L13.3333 20L23.3333 30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="home-pagination swiper-pagination"></div>
+                        <div class="home__next">
+                            <svg class="home__next-svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.6667 10L26.6667 20L16.6667 30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -133,17 +134,14 @@ get_header(); ?>
                                 Арматура
                             </h3>
                         </a>
-                        <!--<a class="rolled-metal__item" href="#">
-                            <svg class="rolled-metal__icon" width="125" height="48" viewBox="0 0 125 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.5 21.7987V18.8404L75.6814 0.515917L124.5 13.3001V15.8322L53.7401 42.4641L1.5 21.7987Z" stroke="#003B81"/>
-                                <path d="M53.5 47L124.5 20" stroke="white" stroke-width="0.5" stroke-dasharray="2 2"/>
-                                <path d="M0.994416 26.5383C0.867508 26.5927 0.80872 26.7396 0.863109 26.8665L1.74943 28.9346C1.80382 29.0615 1.95079 29.1203 2.07769 29.0659C2.2046 29.0115 2.26339 28.8646 2.209 28.7377L1.42116 26.8994L3.25945 26.1115C3.38636 26.0571 3.44515 25.9102 3.39076 25.7833C3.33637 25.6564 3.1894 25.5976 3.06249 25.652L0.994416 26.5383ZM51.1914 46.9979C51.3183 46.9435 51.3771 46.7965 51.3227 46.6696L50.4364 44.6015C50.382 44.4746 50.235 44.4158 50.1081 44.4702C49.9812 44.5246 49.9224 44.6716 49.9768 44.7985L50.7646 46.6368L48.9263 47.4246C48.7994 47.479 48.7406 47.626 48.795 47.7529C48.8494 47.8798 48.9964 47.9386 49.1233 47.8842L51.1914 46.9979ZM1.00005 27.0002L51 47.0002L51.1857 46.5359L1.18574 26.5359L1.00005 27.0002Z" fill="#003B81"/>
+                        <a class="rolled-metal__item" href="#">
+                            <svg class="rolled-metal__icon">
+                                <use xlink:href="<?php bloginfo('template_url'); ?>/assets/icons/sprite.svg#sheet-metal"></use>
                             </svg>
                             <h3 class="rolled-metal__subtitle">
                                 Листовой прокат
                             </h3>
                         </a>
-                        -->
                         <a class="rolled-metal__item" href="#">
                             <svg class="rolled-metal__icon">
                                 <use xlink:href="<?php bloginfo('template_url'); ?>/assets/icons/sprite.svg#channel"></use>

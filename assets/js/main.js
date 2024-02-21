@@ -100,6 +100,8 @@ function ready() {
 
    openMenu();
 
+
+
     function burger() {
         const js__headerBurgerClick = document.querySelectorAll('.js__header-burgerclick');
         const js__headerBurger = document.querySelectorAll('.js__header-burger')
@@ -172,6 +174,13 @@ function ready() {
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true
+            },
+            autoplay: {
+                delay: 15000,
+            },
+            navigation: {
+                nextEl: '.home__next',
+                prevEl: '.home__prev'
             },
             effect: 'fade',
             fadeEffect: {
@@ -534,6 +543,52 @@ function ready() {
         })(jQuery);
     }
     customSelect()
+
+    function loadMoreNews () {
+        const button = $('#loadmore');
+        const itemsElementsJs = $('.items-elements-js');
+        let paged = button.attr("data-paged");
+        let maxPages = button.attr("data-max-pages");
+
+        button.click(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: ajaxurl,
+                data: {
+                    paged: paged,
+                    action: 'loadmore'
+                },
+                beforeSend: function (xhr) {
+                    button.text('Загрузка...');
+                },
+                success: function (data) {
+                    paged++;
+                    itemsElementsJs.append(data);
+                    button.text('Загрузить ещё');
+                    if (paged == maxPages) {
+                        button.remove();
+                    }
+                }
+            });
+        });
+    }
+
+    loadMoreNews()
+
+    function scrollCustom() {
+        if(window.innerWidth >= 481) {
+            (function ($) {
+                $(window).on('load', function () {
+                    $('.scroll-js').mCustomScrollbar({
+                        theme: "dark",
+                    });
+                });
+            })(jQuery);
+        }
+    }
+
+    scrollCustom()
 }
 
 

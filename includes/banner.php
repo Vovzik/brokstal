@@ -1,6 +1,6 @@
 <div class="category__box" style='background-image: url("<?php the_field('kartinka_bannera')?>")'>
     <div class="category__info <?=
-               is_page('вакансии')
+               is_page('Вакансии')
             || is_page('Новости')
             || is_page('Доставка и монтаж')
             || is_page('Дилерам')
@@ -15,7 +15,7 @@
     </div>
 
     <?php if (
-            is_page('вакансии')
+            is_page('Вакансии')
             || is_page('Новости')
             || is_page('Доставка и монтаж')
             || is_page('Дилерам')

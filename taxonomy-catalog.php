@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+<?= get_queried_object()->parent ?>
 
 <main class="main">
     <?php

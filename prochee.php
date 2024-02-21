@@ -13,7 +13,7 @@
                     <?php get_sidebar() ?>
                     <div class="content__column">
                         <div class="wp-redactor">
-
+                            <?php the_field('kontent') ?>
                         </div>
                         <?php include "includes/sidebar.php"; ?>
                         <?php include "includes/form.php"; ?>

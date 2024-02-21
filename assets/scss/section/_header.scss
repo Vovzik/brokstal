@@ -286,7 +286,7 @@
 
   &__search-btn {
     width: rem(61px);
-    height: rem(41px);
+    height: rem(42px);
     border-radius: rem(50px);
     background: url('../img/header/search.svg') no-repeat;
     background-position: center;
@@ -684,10 +684,12 @@
      left: 100%;
      background: #003B81;
      padding-top: 0px;
+     border-radius: rem(20px);
     }
 
   &__list {
     background: #003B81;
+    border-radius: rem(20px);
   }
 
   &__item {
@@ -703,7 +705,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: rem(14px);
     min-height: rem(35px);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 130%;
     color: #FFFFFF;
     padding: rem(5px) rem(15px) rem(5px) rem(15px);
@@ -716,6 +718,14 @@
       background: #FFFFFF;
       color: #003B81;
     }
+  }
+
+  &__item:first-child > &__link {
+    border-radius: rem(16px) rem(16px) 0px 0px;
+  }
+
+  &__item:last-child > &__link {
+    border-radius: rem(0px) rem(0px) rem(16px) rem(16px);
   }
 
   &__item.menu-item-has-children > &__link:after {

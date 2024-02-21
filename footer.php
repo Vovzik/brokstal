@@ -1,167 +1,151 @@
-<section class="news">
-    <div class="news__content">
-        <div class="container">
-            <h2 class="news__title">
-                Новости
-            </h2>
-            <div class="news__inner">
-                <div class="news__left">
-                    <article class="news-article">
-                        <a class="news-article__link-box" href="#">
-                            <div class="news-article__box">
-                                <img class="news-article__img"
-                                     src="<?php bloginfo('template_url'); ?>/assets/img/news/1.jpg" alt="alt">
-                            </div>
-                            <h3 class="news-article__subtitle">
-                                Почему важно работать с производителем напрямую
-                            </h3>
-                            <div class="news-article__data">
-                                25-01-2021, 13:19
-                            </div>
-                            <p class="news-article__descr">
-                                Современная добыча висмута не превышает 6000 тонн в год, причем значительную часть
-                                получают в качестве сопутствующего элемента при добыче полиметаллических руд.
-                            </p>
-                            <span class="news-article__link" href="#">
-                                      Подробнее
-                                  </span>
-                        </a>
-                    </article>
-                    <article class="news-article">
-                        <a class="news-article__link-box" href="#">
-                            <div class="news-article__box">
-                                <img class="news-article__img"
-                                     src="<?php bloginfo('template_url'); ?>/assets/img/news/1.jpg" alt="alt">
-                            </div>
-                            <h3 class="news-article__subtitle">
-                                Почему важно работать с производителем напрямую
-                            </h3>
-                            <div class="news-article__data">
-                                25-01-2021, 13:19
-                            </div>
-                            <p class="news-article__descr">
-                                Современная добыча висмута не превышает 6000 тонн в год, причем значительную часть
-                                получают в качестве сопутствующего элемента при добыче полиметаллических руд.
-                            </p>
-                            <span class="news-article__link" href="#">
-                                      Подробнее
-                                  </span>
-                        </a>
-                    </article>
+<?php
+global $post;
+
+$myposts = get_posts([
+    'numberposts' => -1,
+]);
+
+?>
+
+
+<?php if (is_page('О компании')
+    || is_page('Новости')
+    || is_single()
+    || is_page('Доставка и монтаж')
+    || is_page('Дилерам')
+    || is_page('Заказать продукцию')
+    || is_page('Конфиденциальность')
+    || is_page('Вакансии') )  : ?>
+
+<?php else: ?>
+    <section class="news">
+        <div class="news__content">
+            <div class="container">
+                <h2 class="news__title">
+                    Новости
+                </h2>
+                <div class="news__inner">
+                    <div class="news__left">
+                        <?php if ($myposts) : ?>
+                            <?php $time = 0; ?>
+                            <?php foreach ($myposts as $post) : ?>
+                                <?php setup_postdata($post); ?>
+                                <?php switch ($time) {
+                                    case '0'; ?>
+                                        <?php get_template_part('template-parts/element-left')?>
+                                        <?php break ?>
+                                    <?php case '1'; ?>
+                                        <?php get_template_part('template-parts/element-left')?>
+                                        <?php break ?>
+                                    <?php }?>
+                                <?php $time++;?>
+                            <?php endforeach ?>
+                        <?php else: ?>
+                            Записей нет;
+                        <?php endif; ?>
+
+                        <?php wp_reset_postdata(); ?>
+                    </div>
+                    <div class="news__right">
+                        <?php if ($myposts) : ?>
+                            <?php $time = 0; ?>
+                            <?php foreach ($myposts as $post) : ?>
+                                <?php setup_postdata($post); ?>
+                                <?php switch ($time) {
+                                    case '2'; ?>
+                                        <?php get_template_part('template-parts/element-right')?>
+                                        <?php break ?>
+                                    <?php case '3'; ?>
+                                        <?php get_template_part('template-parts/element-right')?>
+                                        <?php break ?>
+                                    <?php case '4'; ?>
+                                        <?php get_template_part('template-parts/element-right')?>
+                                        <?php break ?>
+                                    <?php case '5'; ?>
+                                        <?php get_template_part('template-parts/element-right')?>
+                                        <?php break ?>
+                                    <?php }?>
+                                <?php $time++;?>
+                            <?php endforeach ?>
+                        <?php else: ?>
+                            Записей нет;
+                        <?php endif; ?>
+
+                        <?php wp_reset_postdata(); ?>
+                    </div>
                 </div>
-                <div class="news__right">
-                    <article class="news-article">
-                        <a class="news-article__link-box" href="#">
-                            <h3 class="news-article__subtitle">
-                                Почему важно работать с производителем напрямую
-                            </h3>
-                            <div class="news-article__data">
-                                25-01-2021, 13:19
-                            </div>
-                        </a>
-                    </article>
-                    <article class="news-article">
-                        <a class="news-article__link-box" href="#">
-                            <h3 class="news-article__subtitle">
-                                Почему важно работать с производителем напрямую
-                            </h3>
-                            <div class="news-article__data">
-                                25-01-2021, 13:19
-                            </div>
-                        </a>
-                    </article>
-                    <article class="news-article">
-                        <a class="news-article__link-box" href="#">
-                            <h3 class="news-article__subtitle">
-                                Почему важно работать с производителем напрямую
-                            </h3>
-                            <div class="news-article__data">
-                                25-01-2021, 13:19
-                            </div>
-                        </a>
-                    </article>
-                    <article class="news-article">
-                        <a class="news-article__link-box" href="#">
-                            <h3 class="news-article__subtitle">
-                                Почему важно работать с производителем напрямую
-                            </h3>
-                            <div class="news-article__data">
-                                25-01-2021, 13:19
-                            </div>
-                        </a>
-                    </article>
-                </div>
-            </div>
-            <div class="news__slider">
-                <div class="swiper-wrapper">
-                    <article class="news-article news__slide swiper-slide">
-                        <a class="news-article__link-box" href="#">
-                            <div class="news-article__box">
-                                <img class="news-article__img"
-                                     src="<?php bloginfo('template_url'); ?>/assets/img/news/1.jpg" alt="alt">
-                            </div>
-                            <h3 class="news-article__subtitle">
-                                Почему важно работать с производителем напрямую
-                            </h3>
-                            <div class="news-article__data">
-                                25-01-2021, 13:19
-                            </div>
-                            <p class="news-article__descr">
-                                Современная добыча висмута не превышает 6000 тонн в год, причем значительную часть
-                                получают в качестве сопутствующего элемента при добыче полиметаллических руд.
-                            </p>
-                            <span class="news-article__link" href="#">
+                <div class="news__slider">
+                    <div class="swiper-wrapper">
+                        <article class="news-article news__slide swiper-slide">
+                            <a class="news-article__link-box" href="#">
+                                <div class="news-article__box">
+                                    <img class="news-article__img"
+                                         src="<?php bloginfo('template_url'); ?>/assets/img/news/1.jpg" alt="alt">
+                                </div>
+                                <h3 class="news-article__subtitle">
+                                    Почему важно работать с производителем напрямую
+                                </h3>
+                                <div class="news-article__data">
+                                    25-01-2021, 13:19
+                                </div>
+                                <p class="news-article__descr">
+                                    Современная добыча висмута не превышает 6000 тонн в год, причем значительную часть
+                                    получают в качестве сопутствующего элемента при добыче полиметаллических руд.
+                                </p>
+                                <span class="news-article__link" href="#">
                                 Подробнее
                             </span>
-                        </a>
-                    </article>
-                    <article class="news-article news__slide swiper-slide">
-                        <a class="news-article__link-box" href="#">
-                            <div class="news-article__box">
-                                <img class="news-article__img"
-                                     src="<?php bloginfo('template_url'); ?>/assets/img/news/1.jpg" alt="alt">
-                            </div>
-                            <h3 class="news-article__subtitle">
-                                Почему важно работать с производителем напрямую
-                            </h3>
-                            <div class="news-article__data">
-                                25-01-2021, 13:19
-                            </div>
-                            <p class="news-article__descr">
-                                Современная добыча висмута не превышает 6000 тонн в год, причем значительную часть
-                                получают в качестве сопутствующего элемента при добыче полиметаллических руд.
-                            </p>
-                            <span class="news-article__link" href="#">
+                            </a>
+                        </article>
+                        <article class="news-article news__slide swiper-slide">
+                            <a class="news-article__link-box" href="#">
+                                <div class="news-article__box">
+                                    <img class="news-article__img"
+                                         src="<?php bloginfo('template_url'); ?>/assets/img/news/1.jpg" alt="alt">
+                                </div>
+                                <h3 class="news-article__subtitle">
+                                    Почему важно работать с производителем напрямую
+                                </h3>
+                                <div class="news-article__data">
+                                    25-01-2021, 13:19
+                                </div>
+                                <p class="news-article__descr">
+                                    Современная добыча висмута не превышает 6000 тонн в год, причем значительную часть
+                                    получают в качестве сопутствующего элемента при добыче полиметаллических руд.
+                                </p>
+                                <span class="news-article__link" href="#">
                                 Подробнее
                             </span>
-                        </a>
-                    </article>
-                    <article class="news-article news__slide swiper-slide">
-                        <a class="news-article__link-box" href="#">
-                            <div class="news-article__box">
-                                <img class="news-article__img"
-                                     src="<?php bloginfo('template_url'); ?>/assets/img/news/1.jpg" alt="alt">
-                            </div>
-                            <h3 class="news-article__subtitle">
-                                Почему важно работать с производителем напрямую
-                            </h3>
-                            <div class="news-article__data">
-                                25-01-2021, 13:19
-                            </div>
-                            <p class="news-article__descr">
-                                Современная добыча висмута не превышает 6000 тонн в год, причем значительную часть
-                                получают в качестве сопутствующего элемента при добыче полиметаллических руд.
-                            </p>
-                            <span class="news-article__link" href="#">
+                            </a>
+                        </article>
+                        <article class="news-article news__slide swiper-slide">
+                            <a class="news-article__link-box" href="#">
+                                <div class="news-article__box">
+                                    <img class="news-article__img"
+                                         src="<?php bloginfo('template_url'); ?>/assets/img/news/1.jpg" alt="alt">
+                                </div>
+                                <h3 class="news-article__subtitle">
+                                    Почему важно работать с производителем напрямую
+                                </h3>
+                                <div class="news-article__data">
+                                    25-01-2021, 13:19
+                                </div>
+                                <p class="news-article__descr">
+                                    Современная добыча висмута не превышает 6000 тонн в год, причем значительную часть
+                                    получают в качестве сопутствующего элемента при добыче полиметаллических руд.
+                                </p>
+                                <span class="news-article__link" href="#">
                                 Подробнее
                             </span>
-                        </a>
-                    </article>
+                            </a>
+                        </article>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
+
 </main>
 <footer class="footer">
     <div class="footer__content">
@@ -386,7 +370,7 @@
     </div>
 </div>
 
-<?php include 'includes/application-form.php'?>
+<?php include 'includes/application-form.php' ?>
 
 <div class="popup-form-send">
     Сообщение успешно отправлено
