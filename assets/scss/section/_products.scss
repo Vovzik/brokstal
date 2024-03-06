@@ -10,6 +10,15 @@
     margin-top: rem(30px);
   }
 
+  &__link-detail {
+    color: #003B81;
+    font-weight: 600;
+    transition: 0.4s ease-out;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
 
 
   &__back {
@@ -43,137 +52,67 @@
     font-weight: 700;
     line-height: 130%;
     color: #3A3A3A;
+    margin-right: rem(30px);
   }
 
   &__btn {
     text-align: center;
+    flex:  0 0 auto;
   }
 
   &__table {
-    display: block;
+    border-spacing: 0px;
+    border-collapse: collapse;
     tbody {
-      display: block;
       width: rem(1400px);
     }
   }
 
   &__tr {
-    display: flex;
-    align-items: center;
-    text-align: left;
     background: #F5F5F5;
-    padding: rem(4px) rem(14px) rem(5px) rem(37px);
     &:not(:last-child) {
       border-bottom: rem(0.5px) solid #777777;
     }
-    &:nth-child(1) {
+    &:first-child {
       background: #003B81;
-      padding: rem(20px) rem(14px) rem(19px) rem(37px);
-      border-radius: rem(20px) rem(20px) 0px 0px;
-    }
-    &:last-child {
-      border-radius: 0px 0px rem(20px) rem(20px);
+      border-bottom: none;
     }
   }
 
   &__th {
-    display: block;
     font-family: 'Montserrat', sans-serif;
     font-size: rem(14px);
     font-weight: 500;
     line-height: 130%;
     color: #FFFFFF;
-    &:nth-child(1) {
-      margin-right: rem(76px);
-      width: rem(116px);
+    text-align: left;
+    padding: rem(20px);
+    &:first-child {
+      border-radius: 20px 0px 0px 0px;
     }
-    &:nth-child(2) {
-      margin-right: rem(32px);
-      width: rem(55px);
-    }
-    &:nth-child(3) {
-      margin-right: rem(30px);
-      width: rem(59px);
-    }
-    &:nth-child(4) {
-      margin-right: rem(18px);
-      width: rem(126px);
-    }
-    &:nth-child(5) {
-      margin-right: rem(20px);
-      width: rem(56px);
-    }
-    &:nth-child(6) {
-      margin-right: rem(12px);
-      width: rem(99px);
-    }
-    &:nth-child(7) {
-      margin-right: rem(14px);
-      width: rem(141px);
-    }
-    &:nth-child(8) {
-      margin-right: rem(21px);
-      width: rem(77px);
-    }
-    &:nth-child(9) {
-      margin-right: rem(25px);
-      width: rem(241px);
-    }
-    &:nth-child(10) {
-      width: rem(139px);
+    &:last-child {
+      border-radius: 0px 20px 0px 0px;
     }
   }
 
   &__td {
-    display: block;
     font-family: 'Montserrat', sans-serif;
     line-height: 130%;
     font-size: rem(14px);
     font-weight: 400;
     color: #000000;
-    &:nth-child(1) {
-      margin-right: rem(76px);
-      width: rem(116px);
-      font-weight: 600;
-      font-size: rem(14px);
-      color: #003B81;
-    }
-    &:nth-child(2) {
-      margin-right: rem(32px);
-      width: rem(55px);
-    }
-    &:nth-child(3) {
-      margin-right: rem(30px);
-      width: rem(59px);
-    }
-    &:nth-child(4) {
-      margin-right: rem(18px);
-      width: rem(126px);
-    }
-    &:nth-child(5) {
-      margin-right: rem(20px);
-      width: rem(56px);
-    }
-    &:nth-child(6) {
-      margin-right: rem(12px);
-      width: rem(99px);
-    }
-    &:nth-child(7) {
-      margin-right: rem(14px);
-      width: rem(141px);
-    }
-    &:nth-child(8) {
-      margin-right: rem(21px);
-      width: rem(77px);
-    }
-    &:nth-child(9) {
-      margin-right: rem(25px);
-      width: rem(241px);
-    }
-    &:nth-child(10) {
-      width: rem(139px);
-    }
+    text-align: left;
+    padding: rem(20px);
   }
+
+  &__tr:last-child &__td:last-child  {
+    border-radius: 0px 0px 20px 0px;
+  }
+
+  &__tr:last-child &__td:first-child {
+    border-radius: 0px 0px 0px 20px;
+  }
+
 
   &__value-inner {
     display: flex;
@@ -201,11 +140,6 @@
     display: flex;
     align-items: center;
   }
-  &__td {
-    display: flex;
-    align-items: flex-end;
-  }
-
 
   &__td-box {
     position: relative;
@@ -347,18 +281,17 @@
 
   @media (max-width: 1530px) {
     &__table {
-      overflow-x: hidden;
+      overflow-x: auto;
     }
   }
 
-  @media (max-width: 991px) {
-    &__table {
-      display: none;
-    }
-  }
   @media (max-width: 480px) {
     &__phone {
       display: block;
+    }
+
+    &__table {
+      display: none;
     }
 
     &__inner {

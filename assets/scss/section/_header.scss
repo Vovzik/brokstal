@@ -132,6 +132,9 @@
       &:hover {
         color: #003B81;
       }
+      &[aria-current="page"] {
+        color: #003B81;
+      }
     }
   }
 
@@ -720,6 +723,11 @@
     }
   }
 
+  &__item.current_page_item  &__link {
+    background: #FFFFFF;
+    color: #003B81;
+  }
+
   &__item:first-child > &__link {
     border-radius: rem(16px) rem(16px) 0px 0px;
   }
@@ -740,7 +748,13 @@
     margin-left: rem(4px);
   }
 
+
   &__item.menu-item-has-children &__link:hover:after {
+    background: url('../img/header/submenu-arrow-blue.svg') no-repeat;
+    background-size: 100% 100%;
+  }
+
+  &__item.current_page_item &__link:after {
     background: url('../img/header/submenu-arrow-blue.svg') no-repeat;
     background-size: 100% 100%;
   }

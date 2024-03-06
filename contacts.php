@@ -1,4 +1,4 @@
-<?php /* Template Name: Пункты приема металлолома*/ ?>
+<?php /* Template Name: Контакты*/ ?>
 
 <?php get_header(); ?>
 
@@ -95,16 +95,16 @@
                         <?php if ($repeater) : ?>
                             <div class="addresses">
                                 <div class="addresses__items">
-                                        <?php foreach ($repeater as $repeater) : ?>
-                                            <div class="addresses__item">
-                                                <p class="addresses__text">
-                                                    <?php echo $repeater['adres'] ?>
-                                                </p>
-                                                <a class="addresses__phone" href=" <?php echo $repeater['telefon_ssylka'] ?>">
-                                                    <?php echo $repeater['telefon'] ?>
-                                                </a>
-                                            </div>
-                                        <?php endforeach; ?>
+                                    <?php foreach ($repeater as $repeater) : ?>
+                                        <div class="addresses__item">
+                                            <p class="addresses__text">
+                                                <?php echo $repeater['adres'] ?>
+                                            </p>
+                                            <a class="addresses__phone" href=" <?php echo $repeater['telefon_ssylka'] ?>">
+                                                <?php echo $repeater['telefon'] ?>
+                                            </a>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
                                 <div class="addresses__items">
                                     <?php $repeater = get_field('grafiki2'); ?>
@@ -145,38 +145,38 @@
                         <!-- Цикл адресов пунктов приема металла -->
                         <?php $repeater = get_field('punkty_priema2'); ?>
                         <?php if ($repeater) : ?>
-                          <div class="addresses">
-                            <div class="addresses__items">
-                                <?php $repeater = get_field('punkty_priema2'); ?>
-                                <?php if ($repeater) : ?>
-                                    <?php foreach ($repeater as $repeater) : ?>
-                                        <div class="addresses__item">
-                                            <p class="addresses__text">
-                                                <?php echo $repeater['adres'] ?>
-                                            </p>
-                                            <a class="addresses__phone" href=" <?php echo $repeater['telefon_ssylka'] ?>">
-                                                <?php echo $repeater['telefon'] ?>
-                                            </a>
-                                        </div>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </div>
-                            <div class="addresses__items">
-                                <?php $repeater = get_field('grafiki3'); ?>
-                                <?php if ($repeater) : ?>
-                                    <?php foreach ($repeater as $repeater) : ?>
-                                        <div class="addresses__item">
-                                            <div class="addresses__text addresses__text--style">
-                                                <?= $repeater['tip_loma'] ?>
+                            <div class="addresses">
+                                <div class="addresses__items">
+                                    <?php $repeater = get_field('punkty_priema2'); ?>
+                                    <?php if ($repeater) : ?>
+                                        <?php foreach ($repeater as $repeater) : ?>
+                                            <div class="addresses__item">
+                                                <p class="addresses__text">
+                                                    <?php echo $repeater['adres'] ?>
+                                                </p>
+                                                <a class="addresses__phone" href=" <?php echo $repeater['telefon_ssylka'] ?>">
+                                                    <?php echo $repeater['telefon'] ?>
+                                                </a>
                                             </div>
-                                            <div class="addresses__descr">
-                                                <?= $repeater['tekst'] ?>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="addresses__items">
+                                    <?php $repeater = get_field('grafiki3'); ?>
+                                    <?php if ($repeater) : ?>
+                                        <?php foreach ($repeater as $repeater) : ?>
+                                            <div class="addresses__item">
+                                                <div class="addresses__text addresses__text--style">
+                                                    <?= $repeater['tip_loma'] ?>
+                                                </div>
+                                                <div class="addresses__descr">
+                                                    <?= $repeater['tekst'] ?>
+                                                </div>
                                             </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </div>
                             </div>
-                        </div>
                         <?php else:?>
                         <?php endif;?>
 

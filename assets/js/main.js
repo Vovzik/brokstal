@@ -252,6 +252,7 @@ function ready() {
         const js__popupLink = document.querySelectorAll('.js__popup-link');
         const js__popupClose = document.querySelectorAll('.js__popup-close');
         const body = document.querySelector('body');
+        const header = document.querySelector('.header-content-js');
 
 
         let unlock = true;
@@ -319,6 +320,8 @@ function ready() {
 
             body.style.paddingRight = lockPaddingValue;
             body.classList.add('lock');
+            header.style.paddingRight = lockPaddingValue;
+            header.classList.add('lock');
 
         };
 
@@ -327,6 +330,8 @@ function ready() {
             setTimeout(function () {
                 body.style.paddingRight = '0px';
                 body.classList.remove('lock');
+                header.style.paddingRight = '0px';
+                header.classList.remove('lock');
             }, timeout)
         };
     }
@@ -386,7 +391,7 @@ function ready() {
 
     function plusMinusValue() {
         const js__productsMinus = document.querySelectorAll('.js__products-minus');
-        const js__productsValue = document.querySelectorAll('.js__products-value');
+        const js__productsValue = document.querySelectorAll('.input-text.qty.text');
         const js__productsPlus = document.querySelectorAll('.js__products-plus');
 
 
@@ -519,7 +524,6 @@ function ready() {
 
     function sendForm () {
         const wpcf7Elm = document.querySelectorAll( '.wpcf7' );
-        console.log(wpcf7Elm)
         const popupFormSend = document.querySelector('.popup-form-send');
         for (let i = 0; i < wpcf7Elm.length; i++) {
             if(wpcf7Elm[i]) {
@@ -590,5 +594,3 @@ function ready() {
 
     scrollCustom()
 }
-
-

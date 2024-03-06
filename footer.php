@@ -15,7 +15,8 @@ $myposts = get_posts([
     || is_page('Дилерам')
     || is_page('Заказать продукцию')
     || is_page('Конфиденциальность')
-    || is_page('Вакансии') )  : ?>
+    || is_page('Вакансии')
+    || is_page('Корзина'))  : ?>
 
 <?php else: ?>
     <section class="news">
@@ -76,69 +77,16 @@ $myposts = get_posts([
                 </div>
                 <div class="news__slider">
                     <div class="swiper-wrapper">
-                        <article class="news-article news__slide swiper-slide">
-                            <a class="news-article__link-box" href="#">
-                                <div class="news-article__box">
-                                    <img class="news-article__img"
-                                         src="<?php bloginfo('template_url'); ?>/assets/img/news/1.jpg" alt="alt">
-                                </div>
-                                <h3 class="news-article__subtitle">
-                                    Почему важно работать с производителем напрямую
-                                </h3>
-                                <div class="news-article__data">
-                                    25-01-2021, 13:19
-                                </div>
-                                <p class="news-article__descr">
-                                    Современная добыча висмута не превышает 6000 тонн в год, причем значительную часть
-                                    получают в качестве сопутствующего элемента при добыче полиметаллических руд.
-                                </p>
-                                <span class="news-article__link" href="#">
-                                Подробнее
-                            </span>
-                            </a>
-                        </article>
-                        <article class="news-article news__slide swiper-slide">
-                            <a class="news-article__link-box" href="#">
-                                <div class="news-article__box">
-                                    <img class="news-article__img"
-                                         src="<?php bloginfo('template_url'); ?>/assets/img/news/1.jpg" alt="alt">
-                                </div>
-                                <h3 class="news-article__subtitle">
-                                    Почему важно работать с производителем напрямую
-                                </h3>
-                                <div class="news-article__data">
-                                    25-01-2021, 13:19
-                                </div>
-                                <p class="news-article__descr">
-                                    Современная добыча висмута не превышает 6000 тонн в год, причем значительную часть
-                                    получают в качестве сопутствующего элемента при добыче полиметаллических руд.
-                                </p>
-                                <span class="news-article__link" href="#">
-                                Подробнее
-                            </span>
-                            </a>
-                        </article>
-                        <article class="news-article news__slide swiper-slide">
-                            <a class="news-article__link-box" href="#">
-                                <div class="news-article__box">
-                                    <img class="news-article__img"
-                                         src="<?php bloginfo('template_url'); ?>/assets/img/news/1.jpg" alt="alt">
-                                </div>
-                                <h3 class="news-article__subtitle">
-                                    Почему важно работать с производителем напрямую
-                                </h3>
-                                <div class="news-article__data">
-                                    25-01-2021, 13:19
-                                </div>
-                                <p class="news-article__descr">
-                                    Современная добыча висмута не превышает 6000 тонн в год, причем значительную часть
-                                    получают в качестве сопутствующего элемента при добыче полиметаллических руд.
-                                </p>
-                                <span class="news-article__link" href="#">
-                                Подробнее
-                            </span>
-                            </a>
-                        </article>
+                        <?php if ($myposts) : ?>
+                            <?php foreach ($myposts as $post) : ?>
+                                <?php setup_postdata($post); ?>
+                                <?php get_template_part('template-parts/post-slider-mobail')?>
+                            <?php endforeach ?>
+                        <?php else: ?>
+                            Записей нет;
+                        <?php endif; ?>
+
+                        <?php wp_reset_postdata(); ?>
                     </div>
                 </div>
             </div>
@@ -151,28 +99,14 @@ $myposts = get_posts([
     <div class="footer__content">
         <div class="container">
             <div class="footer__inner-top">
-                <ul class="footer__menu">
-                    <li>
-                        <a href="#" aria-current="page">
-                            О компании
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Новости
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Вакансии
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Контакты
-                        </a>
-                    </li>
-                </ul>
+                <?php
+                wp_nav_menu( array(
+                    'theme_location' => 'bottom_menu',
+                    'container' => '',
+                    'menu_class' => 'footer__menu',
+                    'depth'           => 0,
+                ) );
+                ?>
                 <a class="footer__up" href="#">
 
                 </a>
@@ -188,122 +122,101 @@ $myposts = get_posts([
                     </div>
                 </div>
                 <div class="footer__center">
-                    <div class="footer__column">
-                        <h2 class="footer__title">
-                            БАЗА В П. МЕДВЕДЕВО
-                        </h2>
-                        <div class="footer__address">
-                            <span class="footer__address-text">Адрес:</span> 425200, РМЭ, п. Медведево, ул. Чехова, 14
-                        </div>
-                        <a class="footer__phone" href="tel:88362321515">
-                            8 (8362) 32-15-15
-                        </a>
-                        <a class="footer__mail" href="mailto:secretar@broksteel.ru">
-                            secretar@broksteel.ru
-                        </a>
-                        <h3 class="footer__subtitle">
-                            Продажа металлопроката и МСЦ:
-                        </h3>
-                        <div class="footer__chart">
-                            ПН - ПТ: 8.00-17.00 / Обед: 12.00-13.00
-                            СБ: 8.00-13.00
-                        </div>
-                        <h3 class="footer__subtitle">
-                            Прием лома металлов:
-                        </h3>
-                        <div class="footer__items">
-                            <div class="footer__item">
+                    <?php
+                    // проверяем есть ли в повторителе данные
+                    if (have_rows('bazy', 26)):
+                        // перебираем данные
+                        while (have_rows('bazy', 26)) : the_row(); ?>
+                            <div class="footer__column">
+                                <h2 class="footer__title">
+                                    <?php the_sub_field('nazvanie_bazy') ?>
+                                </h2>
+                                <div class="footer__address">
+                                    <span class="footer__address-text">Адрес:</span> <?php the_sub_field('adres_bazy') ?>
+                                </div>
+                                <a class="footer__phone" href="tel:<?php the_sub_field('telefon') ?>">
+                                    <?php the_sub_field('telefon') ?>
+                                </a>
+                                <a class="footer__mail" href="mailto:<?php the_sub_field('elektronnaya_pochta') ?>">
+                                    <?php the_sub_field('elektronnaya_pochta') ?>
+                                </a>
                                 <h3 class="footer__subtitle">
-                                    Черный лом
+                                    Продажа металлопроката и МСЦ:
                                 </h3>
-                                <div class="footer__chart">
-                                    ПН - ПТ: 8.00-19.00
-                                    Обед: 12.00-13.00
-                                    СБ: 8:00-18:00
-                                    Без обеда
+                                <?php
+                                // проверяем есть ли в повторителе данные
+                                if (have_rows('otdely')):
+                                    // перебираем данные
+                                    while (have_rows('otdely')) : the_row(); ?>
+                                        <div class="footer__chart">
+                                            <?php the_sub_field('dop_informacziya') ?>
+                                        </div>
+                                    <?php endwhile;
+                                else :
+                                    // вложенных полей не найдено
+                                endif;
+                                ?>
+                                <h3 class="footer__subtitle">
+                                    Прием лома металлов:
+                                </h3>
+                                <div class="footer__items">
+                                    <?php
+                                    // проверяем есть ли в повторителе данные
+                                    if (have_rows('otdely')):
+                                        // перебираем данные
+                                        while (have_rows('otdely')) : the_row(); ?>
+                                            <div class="footer__item">
+                                                <h3 class="footer__subtitle">
+                                                    Черный лом
+                                                </h3>
+                                                <div class="footer__chart">
+                                                    <?php the_sub_field('rezhim_raboty_otdela') ?>
+                                                </div>
+                                            </div>
+                                        <?php endwhile;
+                                    else :
+                                        // вложенных полей не найдено
+                                    endif;
+                                    ?>
                                 </div>
                             </div>
-                            <div class="footer__item">
-                                <h3 class="footer__subtitle">
-                                    Цветной лом
-                                </h3>
-                                <div class="footer__chart">
-                                    ПН - ПТ: 8.00-19.00
-                                    Обед: 12.00-13.00
-                                    СБ: 8:00-14:00
-                                    Без обеда
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer__column">
-                        <h2 class="footer__title">
-                            БАЗА В Г. ЙОШКАР-ОЛА
-                        </h2>
-                        <div class="footer__address">
-                            <span class="footer__address-text">Адрес:</span> 424000, РМЭ, г. Йошкар-Ола, ул. Строителей,
-                            101Б
-                        </div>
-                        <a class="footer__phone" href="tel:88362326265">
-                            8 (8362) 32-62-65
-                        </a>
-                        <a class="footer__mail" href="mailto:secretar@broksteel.ru">
-                            secretar@broksteel.ru
-                        </a>
-                        <h3 class="footer__subtitle">
-                            Продажа металлопроката:
-                        </h3>
-                        <div class="footer__chart">
-                            ПН - ПТ: 8.00-17.00 / Обед: 12.00-13.00
-                            СБ: 8.00-13.00
-                        </div>
-                        <h3 class="footer__subtitle">
-                            Прием металлолома:
-                        </h3>
-                        <div class="footer__chart">
-                            ПН - СБ: 8.00 - 19.00 / ВС: выходной
-                        </div>
-                        <a class="footer__link footer__link-phone js__popup-link" data-modal="#popup-callback" href="#">
-                            Заказать звонок
-                        </a>
-                    </div>
+                        <?php endwhile;
+                    else :
+                        // вложенных полей не найдено
+                    endif;
+                    ?>
                 </div>
                 <div class="footer__right">
                     <a class="footer__link js__popup-link" data-modal="#popup-callback" href="#">
                         Заказать звонок
                     </a>
-                    <p class="footer__descr">
-                        Оставьте свой номер телефона
-                        и менеджер компании «Броксталь» свяжется с Вами в ближайшее время
-                    </p>
-                    <div class="footer__text">
-                        Отправляя свои данные через форму, вы соглашаетесь с <a class="footer__text-link" href="#">правилами
-                            сайта</a> и подтверждаете своё согласие на обработку и хранение персональных данных.
-                    </div>
+                    <?php the_field('tekst_obratnoj_svyazi', 26) ?>
                     <div class="footer__cards">
-                        <div class="footer__card">
-                            <img class="footer__card-img"
-                                 src="<?php bloginfo('template_url'); ?>/assets/img/footer/visa.svg" alt="alt">
-                        </div>
-                        <div class="footer__card">
-                            <img class="footer__card-img"
-                                 src="<?php bloginfo('template_url'); ?>/assets/img/footer/mastercard.svg" alt="alt">
-                        </div>
-                        <div class="footer__card">
-                            <img class="footer__card-img"
-                                 src="<?php bloginfo('template_url'); ?>/assets/img/footer/mira.svg" alt="alt">
-                        </div>
+                        <?php
+                        // проверяем есть ли в повторителе данные
+                        if (have_rows('sposoby_oplaty', 26)):
+                            // перебираем данные
+                            while (have_rows('sposoby_oplaty', 26)) : the_row(); ?>
+                                <div class="footer__card">
+                                    <img class="footer__card-img"
+                                         src="<?php the_sub_field('kartinka_sposoba_oplaty') ?>" alt="alt">
+                                </div>
+                            <?php endwhile;
+                        else :
+                            // вложенных полей не найдено
+                        endif;
+                        ?>
                     </div>
                     <div class="footer__socials">
-                        <a class="footer__social" href="#">
+                        <a class="footer__social" target="_blank" href="<?php the_field('ssylka_vk', 26) ?>">
                             <img class="footer__social-icon"
                                  src="<?php bloginfo('template_url'); ?>/assets/img/footer/vk.svg" alt="alt">
                         </a>
-                        <a class="footer__social" href="#">
+                        <a class="footer__social" target="_blank" href="<?php the_field('ssylka_telegram', 26) ?>">
                             <img class="footer__social-icon"
                                  src="<?php bloginfo('template_url'); ?>/assets/img/footer/telegram.svg" alt="alt">
                         </a>
-                        <a class="footer__social" href="#">
+                        <a class="footer__social" target="_blank" href="<?php the_field('ssylka_votsap', 26) ?>">
                             <img class="footer__social-icon"
                                  src="<?php bloginfo('template_url'); ?>/assets/img/footer/whatshap.svg" alt="alt">
                         </a>
@@ -321,7 +234,7 @@ $myposts = get_posts([
     <div class="popup__body">
         <div class="popup__content js__popup-content">
             <div class="popup__column">
-                <a class="popup__btn" href="#">
+                <a class="popup__btn" target="_blank" href="<?php the_field('ssylka_votsap', 26) ?>">
                     Написать в WhatsApp
                 </a>
                 <div class="popup__box">
@@ -336,7 +249,7 @@ $myposts = get_posts([
                 </div>
             </div>
             <div class="popup__column">
-                <a class="popup__btn popup__btn_green" href="#">
+                <a class="popup__btn popup__btn_green" target="_blank" href="<?php the_field('ssylka_telegram', 26) ?>">
                     Написать в Telegram
                 </a>
                 <div class="popup__box">
@@ -371,6 +284,7 @@ $myposts = get_posts([
 </div>
 
 <?php include 'includes/application-form.php' ?>
+<?php include 'includes/request_price_form.php' ?>
 
 <div class="popup-form-send">
     Сообщение успешно отправлено
@@ -405,7 +319,7 @@ $myposts = get_posts([
         </a>
     </li>
     <li class="footer-menu__item <?= is_page_template('catalog.php') ? 'active' : '' ?>">
-        <a class="footer-menu__link" href="#">
+        <a class="footer-menu__link" href="/catalog/">
             <svg class="footer-menu__icon" width="46" height="34" viewBox="0 0 46 34" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <rect x="12" y="6" width="8" height="8" rx="3" stroke="#777777" stroke-width="3"
@@ -435,11 +349,11 @@ $myposts = get_posts([
         </a>
     </li>
     <li class="footer-menu__item">
-        <a class="footer-menu__link" href="#">
-                   <span class="footer-menu__number">
-                1
-            </span>
-            <svg class="footer-menu__icon" width="46" height="34" viewBox="0 0 46 34" fill="none"
+    <a class="footer-menu__link" href="<?php echo WC()->cart->get_cart_url(); ?>">
+                        <span class="footer-menu__number">
+                            <?php echo  WC()->cart->get_cart_contents_count() ; ?>
+                        </span>
+ <svg class="footer-menu__icon" width="46" height="34" viewBox="0 0 46 34" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.7892 6.00183L12.8322 6.0011L13.8056 6C14.5206 6.0166 15.0025 6.32069 15.2513 6.91229C15.3609 7.20271 15.4349 7.49241 15.4732 7.78137L15.7396 9.38812C15.7417 9.40057 15.7496 9.40679 15.7632 9.40679L16.8026 9.40496L17.7708 9.40789L18.8253 9.40679L19.7939 9.40569H20.8185L21.8459 9.40643L22.7965 9.40569L23.7727 9.40643L24.8241 9.40533L25.7631 9.40606L26.8493 9.40533L27.7571 9.40569H28.83L29.7878 9.40679L30.8188 9.40569L31.7554 9.40643L32.8048 9.40826C33.1405 9.39459 33.4712 9.40984 33.797 9.45402C34.1329 9.49795 34.4182 9.614 34.6528 9.80216C34.8872 9.99033 35.0029 10.2407 34.9999 10.5534C34.9951 10.8389 34.9192 11.0696 34.8084 11.3492L33.006 16.0611L32.8584 16.4499C32.4933 17.226 32.0158 17.7678 31.0168 17.7927C30.3453 17.8092 29.6271 17.7909 28.9472 17.7964C28.2022 17.8026 27.4571 17.7891 26.7129 17.7978C26.2711 17.803 25.8295 17.8049 25.388 17.8037C24.2415 17.8008 23.0951 17.7987 21.9487 17.7975C20.5634 17.796 19.1754 17.7964 17.7848 17.7986L17.54 17.7964C17.5248 17.7964 17.5184 17.8032 17.5208 17.8169L17.8535 19.7132L17.8711 19.8768C17.8725 19.8895 17.8801 19.8959 17.8939 19.8959C22.0383 19.9043 26.1826 19.8959 30.3269 19.8955C30.6314 19.8955 30.8783 19.9006 31.0676 19.9109C31.2857 19.9399 31.4812 20.0094 31.6542 20.1192C31.8286 20.2627 31.9301 20.4323 31.9586 20.628C32.0007 20.9307 31.9671 21.2079 31.8578 21.4598L31.7342 21.6886C31.4807 21.961 31.1675 22.0093 30.7932 21.9987L25.9363 21.999H22.6481L21.8183 21.9987L20.7673 21.999L19.8151 21.9987L18.7198 21.999C18.2641 21.9988 17.8074 21.9982 17.3497 21.9972C16.4171 21.9954 15.9232 21.2826 15.6456 20.5739C15.5248 20.2471 15.4474 19.9923 15.4133 19.8095C15.3113 19.2629 15.1729 18.6867 15.0713 18.1789C14.8807 17.2271 14.6854 16.2765 14.4855 15.3271L14.2543 14.1809L14.0655 13.2595L13.3089 9.62937L13.1125 8.7061C13.1114 8.70098 13.1084 8.69638 13.104 8.69311C13.0996 8.68983 13.0942 8.68808 13.0886 8.68817L12.7782 8.69146L11.742 8.69183C11.1909 8.69146 10.7107 8.73795 10.3127 8.31476C10.196 8.19066 10.026 7.97174 10.0012 7.79638C10.0015 7.39588 10.0011 6.99563 10 6.59562C10 6.50898 10.0264 6.43833 10.0792 6.38366C10.2919 6.16376 10.5411 6.04003 10.8266 6.01245L11.7892 6.00183ZM16.4646 12.3519L17.1601 15.6544C17.1628 15.6666 17.1709 15.6727 17.1845 15.6727L17.8196 15.6738L18.7814 15.6749L21.7923 15.6815L22.7913 15.6826L23.7835 15.6848L24.7949 15.6841H25.7903L26.7881 15.6837L27.8211 15.6903L28.8036 15.6906L30.4649 15.6921C30.4748 15.6921 30.4844 15.6893 30.4925 15.6842C30.5007 15.679 30.5069 15.6717 30.5105 15.6632L31.5159 13.2236L32.2165 11.5187C32.2235 11.5014 32.2168 11.4927 32.1965 11.4927C30.7262 11.4901 29.2498 11.4854 27.7675 11.4788C27.7603 11.4852 27.7505 11.4865 27.7383 11.4829L26.7477 11.4744L23.7955 11.4697L22.7501 11.4642L19.7575 11.4576L18.6106 11.4569L17.758 11.4503L16.7822 11.4466L16.2963 11.4419C16.2827 11.4419 16.2771 11.448 16.2795 11.4602L16.4646 12.3519Z"
                       fill="#777777"/>
@@ -451,7 +365,7 @@ $myposts = get_posts([
             <div class="footer-menu__text">
                 Корзина
             </div>
-        </a>
+                    </a>
     </li>
 </ul>
 

@@ -51,13 +51,13 @@
             Наши социальные сети:
         </p>
         <div class="callback__socials">
-            <a class="callback__social" href="<?php the_field('ssylka_vk',26)?>">
+            <a class="callback__social" target="_blank" href="<?php the_field('ssylka_vk',26)?>">
                 <img class="callback__icon" src="<?php bloginfo('template_url'); ?>/assets/icons/vk.svg" alt="alt">
             </a>
-            <a class="callback__social" href="<?php the_field('ssylka_votsap',26)?>">
+            <a class="callback__social" target="_blank" href="<?php the_field('ssylka_votsap',26)?>">
                 <img class="callback__icon" src="<?php bloginfo('template_url'); ?>/assets/icons/whatsap.svg" alt="alt">
             </a>
-            <a class="callback__social" href="<?php the_field('ssylka_telegram',26)?>">
+            <a class="callback__social" target="_blank" href="<?php the_field('ssylka_telegram',26)?>">
                 <img class="callback__icon" src="<?php bloginfo('template_url'); ?>/assets/icons/telegram.svg" alt="alt">
             </a>
         </div>
